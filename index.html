@@ -502,6 +502,9 @@
             }
             description.textContent = typeof source.server_description === 'string' && source.server_description.trim()
               ? source.server_description : 'This stream is online. Select it to listen.';
+            if (button.dataset.background === 'c') {
+              description.textContent = description.textContent.replace(/visited\s+also\s+by/gi, 'visited by');
+            }
           } else {
             description.textContent = 'Currently offline. Check back soon — availability updates automatically.';
           }
