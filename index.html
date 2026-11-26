@@ -164,8 +164,8 @@
     .mix-actions button { padding:12px 22px; min-height:48px; border:1px solid white; border-radius:10px; background:rgba(243,242,234,.4); color:white; font:inherit; text-shadow:0 1px 3px #000; cursor:pointer; }
     .mix-actions #start-mix { background:rgba(209,235,112,.45); }
     .mix-descriptions { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; color:white; text-shadow:0 1px 4px #000,0 0 10px #000; margin-top:24px; }
-    .mix-descriptions h2 { font-size:16px; font-weight:600; }
-    .mix-descriptions p { font-size:16px; line-height:1.5; }
+    .mix-descriptions h2 { font-size:19px; font-weight:600; }
+    .mix-descriptions p { font-size:19px; line-height:1.5; }
     .landscapes { background:#000; isolation:isolate; }
     .landscape,.landscape.is-active { opacity:var(--mix-opacity,0.3333333333); mix-blend-mode:plus-lighter; transition:none; }
     @media(max-width:720px) { .mixer-stage .stream-shell { width:92px; } .mixer-stage .triangle-face h2 { font-size:10px; } .mixer-stage .stream-action { font-size:10px; } .mixer-stage .availability { font-size:10px; padding:3px 5px; } .mixer-stage .volume-label { font-size:12px; } .mix-descriptions { grid-template-columns:1fr; gap:8px; } .mix-actions { margin-top:80px; } .mixer-instructions { font-size:14px; } }
@@ -177,21 +177,22 @@
     .mixer-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:24px; align-items:start; }
     .mixer-sidebar { min-width:0; color:white; text-align:left; padding-bottom:24px; text-shadow:0 1px 3px #000,0 0 8px #000; }
     .mixer-sidebar .description { max-width:none; font-size:22px; margin:0 0 22px; }
-    .mixer-sidebar .mixer-instructions { text-align:left; font-size:16px; }
+    .mixer-sidebar .mixer-instructions { text-align:left; font-size:19px; }
     .mix-actions { justify-content:flex-start; margin:20px 0; }
     .mix-descriptions { grid-template-columns:1fr; gap:36px; margin-top:24px; }
     .mix-descriptions h2 { margin:0 0 6px; }
     .mix-descriptions p { margin:0; }
     .player { grid-template-columns:1fr; gap:14px; padding:18px; margin-top:20px; }
     .notes { grid-template-columns:1fr; gap:12px; margin:24px 0; }
-    .notes p { font-size:14px; }
+    .notes h2 { font-size:13px; }
+    .notes p { font-size:12px; line-height:1.45; }
     .mixer-sidebar header { flex-direction:column; align-items:flex-start; padding:18px 0; }
     .header-actions { justify-content:flex-start; }
     .mixer-sidebar footer { flex-direction:column; gap:8px; }
     .mixer-sidebar #fullscreen-message { text-align:left; }
     .mixer-right { width:100%; max-width:none; margin:0; position:sticky; top:16px; }
     .mixer-stage { max-width:none; width:min(100%,calc((100svh - 120px) * 1.17647)); margin:0 auto; }
-    @media(max-width:720px) { .wrap { padding:0 14px; } .mixer-layout { gap:12px; } .mixer-sidebar .description { font-size:17px; } .mixer-sidebar .mixer-instructions,.mix-descriptions p { font-size:14px; } .mixer-stage .stream-shell { width:clamp(58px,12vw,92px); } .mixer-stage .triangle-face h2 { font-size:clamp(7px,1.4vw,10px); } .mix-actions button { padding:10px; font-size:14px; } }
+    @media(max-width:720px) { .wrap { padding:0 14px; } .mixer-layout { gap:12px; } .mixer-sidebar .description { font-size:17px; } .mixer-sidebar .mixer-instructions,.mix-descriptions p,.mix-descriptions h2 { font-size:17px; } .mixer-stage .stream-shell { width:clamp(58px,12vw,92px); } .mixer-stage .triangle-face h2 { font-size:clamp(7px,1.4vw,10px); } .mix-actions button { padding:10px; font-size:14px; } }
     main > .description { max-width:none; width:100%; margin:0 0 18px; color:white; text-align:left; font-size:22px; line-height:1.5; text-shadow:0 1px 3px #000,0 0 8px #000; }
     .intro { padding-bottom:16px; }
     @media(max-width:720px) { main > .description { font-size:18px; } }
