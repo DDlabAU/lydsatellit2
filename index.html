@@ -197,8 +197,8 @@
     .intro { padding-bottom:16px; }
     @media(max-width:720px) { main > .description { font-size:18px; } }
     .mixer-stage .mix-actions { position:absolute; top:10%; left:0; width:100%; margin:0; padding:0 10%; display:flex; justify-content:space-between; flex-wrap:nowrap; gap:0; z-index:3; pointer-events:none; }
-    .mixer-stage .mix-actions button { pointer-events:auto; padding:12px 16px; }
-    @media(max-width:720px) { .mixer-stage .mix-actions { padding:0; top:5%; } .mixer-stage .mix-actions button { padding:8px 5px; font-size:12px; } }
+    .mixer-stage .mix-actions button { pointer-events:auto; padding:20px 28px; min-height:68px; font-size:22px; }
+    @media(max-width:720px) { .mixer-stage .mix-actions { padding:0; top:5%; } .mixer-stage .mix-actions button { padding:12px 8px; min-height:48px; font-size:15px; } }
     .mixer-stage .stream-action { display:none; }
   </style>
 </head>
@@ -319,6 +319,7 @@
       const active = buttons.filter(button => players.get(button).active);
       title.textContent = active.map(button => button.dataset.name).join(' + ');
       stop.disabled = active.length === 0;
+      document.getElementById('start-mix').textContent = active.length ? 'Stop mix' : 'Start mix';
       status.textContent = active.length
         ? active.map(button => button.dataset.name + ': ' + players.get(button).state).join(' · ')
         : 'Select one or more streams to start listening.';
@@ -462,9 +463,10 @@
       if(event.key==='Home'){event.preventDefault();setMix({x:400,y:422});}
     });
     document.getElementById('centre-mix').addEventListener('click',()=>setMix({x:400,y:422}));
-    document.getElementById('start-mix').addEventListener('click',()=>buttons.forEach(button=>{
-      if(!players.get(button).active) startStream(button);
-    }));
+    document.getElementById('start-mix').addEventListener('click',()=>{
+      const isRunning = buttons.some(button => players.get(button).active);
+      buttons.forEach(button => isRunning ? stopStream(button) : startStream(button));
+    });
     setMix(mixPoint);
 
     // Read Icecast metadata without connecting to or interrupting the audio streams.
