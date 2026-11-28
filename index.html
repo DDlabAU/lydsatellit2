@@ -493,7 +493,7 @@
       outageNotice.replaceChildren();
       buttons.forEach((button,index) => {
         const state = outageStates.get(button.dataset.background);
-        if (!state || state.online) return;
+        if (!state || state.online || !state.offlineAt) return;
         const line = document.createElement('div');
         line.textContent = state.offlineAt
           ? 'Satellite No. ' + (index + 1) + ' detected offline at ' + copenhagenClock.format(state.offlineAt) + ' (Copenhagen time)'
@@ -541,7 +541,7 @@
         availabilityNote.textContent = 'Checked at ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'}) + ' · Updates every 30 seconds.';
       } catch (error) {
         outageStates.clear();
-        outageNotice.textContent = 'Satellite status unavailable — unable to check outage times';
+        outageNotice.replaceChildren();
         buttons.forEach(button => {
           button.dataset.availability = 'unknown';
           button.querySelector('.availability').textContent = 'Status unknown';
